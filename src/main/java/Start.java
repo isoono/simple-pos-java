@@ -1,14 +1,20 @@
+import register.BasketRegister;
+import register.CalculateRegister;
+import register.MenuRegister;
+import register.StockRegister;
+
 import java.util.Scanner;
 
 public class Start {
-    MenuRegister register = new MenuRegister();
+    MenuRegister menuRegister = new MenuRegister();
+    BasketRegister basketRegister = new BasketRegister();
+    CalculateRegister calculateRegister = new CalculateRegister();
+    StockRegister stockRegister = new StockRegister();
 
     public void start() {
         int num;
         boolean run = true;
-//        System.out.println("==================================");
-//        System.out.println("POS기를 실행합니다.");
-        register.connection();
+        menuRegister.connection();
         while (run) {
             System.out.println("==================================");
             System.out.println("==================================");
@@ -20,18 +26,19 @@ public class Start {
             if (num >= 1 && num <= 5) {
                 switch (num) {
                     case 1:
-                        register.getAllMenu();
+                        menuRegister.getAllMenu();
                         break;
                     case 2:
-                        register.menuManage();
+                        stockRegister.menuManage();
                         break;
                     case 3:
-                        register.calculate();
+                        calculateRegister.calculate();
                         break;
                     case 4:
+                        basketRegister.basket();
                         break;
                     case 5:
-                        run = register.exit();
+                        run = menuRegister.exit();
                         break;
                 }
             } else {
