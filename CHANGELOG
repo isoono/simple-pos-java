@@ -1,5 +1,8 @@
 This file shows the history of the application.
 
+v 2022.05.23
+    - 계산 API 구현 (#3)
+
 v 2022.05.20
     - 메뉴 보기, 재고 관리  기능 구현 완료
     - 계산, 장바구니 관련 기능 구현 중
