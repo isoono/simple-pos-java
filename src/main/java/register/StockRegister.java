@@ -8,7 +8,7 @@ public class StockRegister {
     Scanner scanner = new Scanner(System.in);
     MenuRepository repo = new MenuRepository();
     public void menuManage() {
-        System.out.println("1. 재고 추가 | 2. 재고 삭제 | 3. 뒤로 ");
+        System.out.println("1. 재고 추가 | 2. 재고 삭제 | 3. 총 매출액 ");
         System.out.print("> ");
         int num = scanner.nextInt();
         if (num >= 1 && num <= 3) {
@@ -20,6 +20,7 @@ public class StockRegister {
                     deleteStock();
                     break;
                 case 3:
+                    getSafeBox();
                     break;
             }
         } else {
@@ -45,6 +46,10 @@ public class StockRegister {
         System.out.print("이름 > ");
         String name = scanner.next();
         repo.deleteMenu(name);
+    }
+
+    public void getSafeBox() {
+        System.out.println("총 매출액은 " + MenuRepository.safeBox + "원 입니다.");
     }
 
 }

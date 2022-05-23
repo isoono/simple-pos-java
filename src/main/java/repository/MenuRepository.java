@@ -7,11 +7,13 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class MenuRepository {
-    private Connection conn = null;
-    private Statement stmt = null;
-    private ResultSet rs = null;
-    private double totalPrice;
-    List<String> menuName = new ArrayList<>();
+    private static Connection conn = null;
+    private static Statement stmt = null;
+    private static ResultSet rs = null;
+    public static double totalPrice = 0;
+    public static double safeBox = 0;
+
+    public List<String> menuName = new ArrayList<>();
 
     public void connection() {
         try {
@@ -66,9 +68,13 @@ public class MenuRepository {
 
     public void getAllMenuList() {
         try {
+            System.out.println("1");
             PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM menu");
+            System.out.println("2");
             rs = pstmt.executeQuery();
+            System.out.println("3");
             while (rs.next()) {
+                System.out.println("4");
                 String name = rs.getString("name");
                 double price = rs.getDouble("price");
                 int quantity = rs.getInt("quantity");
