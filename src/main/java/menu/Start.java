@@ -1,20 +1,21 @@
-import register.BasketRegister;
-import register.CalculateRegister;
-import register.MenuRegister;
-import register.StockRegister;
+package menu;
+
+import calculate.CalculateRegister;
+import stock.StockRegister;
 
 import java.util.Scanner;
 
 public class Start {
-    MenuRegister menuRegister = new MenuRegister();
-    BasketRegister basketRegister = new BasketRegister();
-    CalculateRegister calculateRegister = new CalculateRegister();
-    StockRegister stockRegister = new StockRegister();
 
-    public void start() {
+    MenuDB menuDB = new MenuDatabaseHelper();
+    BasketRegister basketRegister = new BasketRegister(menuDB);
+    CalculateRegister calculateRegister = new CalculateRegister(menuDB);
+    StockRegister stockRegister = new StockRegister(menuDB);
+
+    public void run() {
         int num;
         boolean run = true;
-        menuRegister.connection();
+        menuDB.connection();
         while (run) {
             System.out.println("==================================");
             System.out.println("==================================");
@@ -26,19 +27,19 @@ public class Start {
             if (num >= 1 && num <= 5) {
                 switch (num) {
                     case 1:
-                        menuRegister.getAllMenu();
+                        System.out.println(menuDB.getAllMenuList());
                         break;
                     case 2:
                         stockRegister.menuManage();
                         break;
                     case 3:
-                        calculateRegister.calculate();
+//                        calculateRegister.calculate();
                         break;
                     case 4:
-                        basketRegister.basket();
+                        basketRegister.basketMenu();
                         break;
                     case 5:
-                        run = menuRegister.exit();
+                        run = menuDB.exit();
                         break;
                 }
             } else {
