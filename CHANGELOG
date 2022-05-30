@@ -1,5 +1,9 @@
 This file shows the history of the application.
 
+v 2022.05.30
+    - 레지스터 리펙터링
+    - Stock Unit 테스트 코드 작성 (진행중)
+
 v 2022.05.24
     - 전체 패키지 구조 리팩터링
 
