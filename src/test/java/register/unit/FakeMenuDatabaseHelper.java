@@ -42,11 +42,27 @@ public class FakeMenuDatabaseHelper implements MenuDB {
 
     @Override
     public boolean addMenu(Menu menu) {
-        return false;
+        if (menu == null) {
+            return false;
+        } else {
+            for (int i = 0; i < fakeMenus.size(); i++) {
+                if (menu.getName().equals(fakeMenus.get(i).getName())) {
+                    return false;
+                }
+            }
+            fakeMenus.add(menu);
+            return true;
+        }
     }
 
     @Override
     public boolean deleteMenu(String name) {
+        for (int i = 0; i < fakeMenus.size(); i++) {
+            if (fakeMenus.get(i).getName().equals(name)) {
+                fakeMenus.remove(i);
+                return true;
+            }
+        }
         return false;
     }
 
@@ -58,6 +74,11 @@ public class FakeMenuDatabaseHelper implements MenuDB {
     @Override
     public boolean addSales(double sales, String name) {
         return false;
+    }
+
+    @Override
+    public double getPrice(String name) {
+        return 0;
     }
 
     @Override

@@ -2,6 +2,7 @@
 //
 //import calculate.CalculateRegister;
 //import menu.Menu;
+//import menu.MenuDatabaseHelper;
 //import org.junit.jupiter.api.DisplayName;
 //import org.junit.jupiter.api.Test;
 //
@@ -12,7 +13,7 @@
 //
 //public class CalculateRegisterTest {
 //
-//    private final FakeMenuDatabaseHelper helper = new FakeMenuDatabaseHelper();
+//    private final MenuDatabaseHelper helper = new MenuDatabaseHelper();
 //    private final CalculateRegister register = new CalculateRegister(helper);
 //
 //    @DisplayName("계산 성공 테스트")
@@ -23,7 +24,7 @@
 //        basket.add(new Menu("사이다", 100, 1));
 //        basket.add(new Menu("환타", 300, 3));
 //
-//        int sum = register.calculate(basket);
+//        register.calculateWithCash();
 //        assertEquals(sum, 500);
 //    }
 //}
