@@ -18,6 +18,8 @@ public interface MenuDB {
 
     boolean addSales(final double sales, final String name);
 
+    double getPrice(final String name);
+
     boolean exit();
 
 }

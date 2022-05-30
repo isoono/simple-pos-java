@@ -24,13 +24,13 @@ public class StockRegister extends Register {
                     double price = scanner.nextDouble();
                     System.out.print("수량 > ");
                     int quantity = scanner.nextInt();
-                    menuDB.addMenu(new Menu(name, price, quantity));
+                    addStock(new Menu(name, price, quantity));
                     break;
                 case 2:
                     System.out.println("삭제할 항목의 이름을 입력하세요.");
                     System.out.print("이름 > ");
                     String deletedName = scanner.next();
-                    menuDB.deleteMenu(deletedName);
+                    deleteStock(deletedName);
                     break;
                 case 3:
                     System.out.print("이름 > ");
@@ -42,5 +42,29 @@ public class StockRegister extends Register {
             System.out.println("다시 선택해 주세요.");
         }
     }
+
+    public boolean addStock(final Menu menu) {
+        boolean result = menuDB.addMenu(menu);
+        System.out.println(result);
+        if (result) {
+            System.out.println("추가되었습니다.");
+            return true;
+        } else {
+            System.out.println("다시 입력해주세요.");
+            return false;
+        }
+    }
+
+    public boolean deleteStock(final String name) {
+        boolean result = menuDB.deleteMenu(name);
+        if (result) {
+            System.out.println("삭제되었습니다.");
+            return true;
+        } else {
+            System.out.println("다시 입력해주세요.");
+            return false;
+        }
+    }
+
 
 }

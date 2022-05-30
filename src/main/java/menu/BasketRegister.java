@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BasketRegister extends Register {
 
-    private final List<Menu> basket = new ArrayList<>();
+//    private final List<Menu> basket = new ArrayList<>();
 
     BasketRegister(MenuDB menuDB) {
         this.menuDB = menuDB;

@@ -33,7 +33,7 @@ public class Start {
                         stockRegister.menuManage();
                         break;
                     case 3:
-//                        calculateRegister.calculate();
+                        calculateRegister.calculate();
                         break;
                     case 4:
                         basketRegister.basketMenu();

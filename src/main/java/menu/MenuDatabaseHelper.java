@@ -128,6 +128,22 @@ public class MenuDatabaseHelper implements MenuDB {
     }
 
     @Override
+    public double getPrice(final String name) {
+        double price = 0;
+        try (
+                PreparedStatement pstmt = conn.prepareStatement("SELECT price FROM menu WHERE name = ?");
+        ) {
+            pstmt.setString(1, name);
+            ResultSet rs = pstmt.executeQuery();
+
+            return rs.getDouble("price");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
     public boolean exit() {
         try {
             conn.close();
