@@ -12,6 +12,13 @@ public class Menu {
         this.quantity = quantity;
     }
 
+    public Menu(String name, double price, int quantity, double sales) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.sales = sales;
+    }
+
     public String getName() {
         return name;
     }

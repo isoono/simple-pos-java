@@ -68,7 +68,17 @@ public class FakeMenuDatabaseHelper implements MenuDB {
 
     @Override
     public double getSales(String name) {
-        return 0;
+        double sales = 0;
+        if (name == null) {
+            return 0;
+        } else {
+            for (int i = 0; i < fakeMenus.size(); i++) {
+                if (fakeMenus.get(i).getName().equals(name)) {
+                    sales = fakeMenus.get(i).getSales();
+                }
+            }
+            return sales;
+        }
     }
 
     @Override

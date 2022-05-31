@@ -35,7 +35,7 @@ public class StockRegister extends Register {
                 case 3:
                     System.out.print("이름 > ");
                     String salesName = scanner.next();
-                    menuDB.getSales(salesName);
+                    getSales(salesName);
                     break;
             }
         } else {
@@ -66,5 +66,8 @@ public class StockRegister extends Register {
         }
     }
 
+    public double getSales(String name) {
+        return menuDB.getSales(name);
+    }
 
 }

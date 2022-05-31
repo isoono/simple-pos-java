@@ -1,8 +1,6 @@
 package register.unit;
 
 import menu.Menu;
-import menu.MenuDatabaseHelper;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -74,5 +72,19 @@ public class StockRegisterTest {
 
         //Then
         assertFalse(result);
+    }
+
+    @DisplayName("매출액 조회 성공 테스트")
+    @Test
+public void getSales() {
+        //Given
+        Menu menu = new Menu("콜라TEST", 100000, 100000, 200000);
+
+        //When
+        register.addStock(menu);
+        double result = register.getSales("콜라TEST");
+
+        //Then
+        assertEquals(result, 200000);
     }
 }
